@@ -21,7 +21,7 @@ Monologue.find({}).removeAsync()
       },
       tags: ['classical', 'Shakespearean'],
       meta: {
-        curated: { type: false }
+        curated: false
         // date: { type: Date.now }
       }
     }, {

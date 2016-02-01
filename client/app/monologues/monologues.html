@@ -1,0 +1,30 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="col-md-12">
+	Search:
+
+	<input type="text" 
+         ng-model="ctrl.userInput"
+         ng-change="ctrl.adjustedFilterSearch()"
+         placeholder="controller search" />
+  <br /><br />
+
+  {{ ctrl.userInput }}
+
+  <div ng-repeat="monologue in ctrl.results">
+    <div>
+      <label>Playwright</label>
+      <span ng-bind="monologue.playwright"></span>
+    </div>
+    <div>
+      <label>Character</label>
+      <span ng-bind="monologue.character"></span>
+    </div>
+    <br />
+  </div>
+
+  <pre>
+    {{ ctrl.monologues | json }}
+  </pre>
+</div>
+
