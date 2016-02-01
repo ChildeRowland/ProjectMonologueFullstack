@@ -1,0 +1,60 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="col-md-12">
+	Search:
+	<br /><br />
+
+	<input type="text" 
+         ng-model="ctrl.criteriaAdvanced.playwright"
+         ng-change="ctrl.advancedSearch()"
+         placeholder="Playwright" />
+  	<br /><br />
+
+  	<input type="text" 
+         ng-model="ctrl.criteriaAdvanced.title"
+         ng-change="ctrl.advancedSearch()"
+         placeholder="Title" />
+  	<br /><br />
+
+  	<input type="text" 
+         ng-model="ctrl.criteriaAdvanced.character"
+         ng-change="ctrl.advancedSearch()"
+         placeholder="Character" />
+  	<br /><br />
+
+  	<div ng-repeat="gender in ctrl.genderOptions">
+  		<input type="radio"
+  			   name="selectGender"
+  			   ng-model="ctrl.criteriaAdvanced.gender"
+  			   ng-change="ctrl.advancedSearch()"
+  			   ng-value="gender"/>
+  		<span ng-bind="gender"></span>
+  	</div>
+  	<br /><br />
+
+  	<div ng-repeat="age in ctrl.ageOptions">
+  		<input type="radio"
+  			   name="selectAge"
+  			   ng-model="ctrl.criteriaAdvanced.age"
+  			   ng-change="ctrl.advancedSearch()"
+  			   ng-value="age"/>
+  		<span ng-bind="age"></span>
+  	</div>
+  	<br /><br />
+
+  <div ng-repeat="monologue in ctrl.results">
+    <div>
+      <label>Playwright</label>
+      <span ng-bind="monologue.playwright"></span>
+    </div>
+    <div>
+      <label>Character</label>
+      <span ng-bind="monologue.character"></span>
+    </div>
+    <br />
+  </div>
+
+  <pre>
+    {{ ctrl.monologues | json }}
+  </pre>
+</div>

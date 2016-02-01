@@ -8,5 +8,12 @@ angular.module('projectMonologueFullstackApp')
         templateUrl: 'app/monologues/monologues.html',
         controller: 'MonologuesCtrl',
         controllerAs: 'ctrl'
+      })
+
+      .state('monologuesAdvanced', {
+        url: '/monologues/advanced',
+        templateUrl: 'app/monologues/advanced.html',
+        controller: 'MonologuesCtrl',
+        controllerAs: 'ctrl'
       });
   });

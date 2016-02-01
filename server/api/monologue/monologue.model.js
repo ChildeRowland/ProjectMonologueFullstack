@@ -6,8 +6,11 @@ var MonologueSchema = new mongoose.Schema({
   playwright: String,
   title: String,
   character: String,
+  gender: String,
+  age: String,
   body: String,
   chapter: { act: String, scene: String },
+  setting: Array,
   tags: Array,
   meta: {
   	curated: { type: Boolean, default: false },

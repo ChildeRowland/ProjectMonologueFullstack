@@ -1,57 +1,33 @@
 'use strict';
 
-angular.module('projectMonologueFullstackApp') 
+angular.module('projectMonologueFullstackApp')
 
-	.filter('adjustedFuzzySearch', function($filter) {
-      var results;
+	.controller('MonologuesCtrl', function ($log, $filter, GENDEROPTIONS, AGEOPTIONS, MonologuesControllerDataService) {
+		var self = this;
 
-      return function(data, criteria) {
+		self.results;
+		self.monologues;
+		self.criteriaAdvanced = {};
 
-        if ( criteria.length < 1 ) { 
-          	return results = null; 
-        } else {
+		self.genderOptions = GENDEROPTIONS;
+		self.ageOptions = AGEOPTIONS;
+		self.criteriaAdvanced.gender = self.genderOptions[0];
+		self.criteriaAdvanced.age = self.ageOptions[0];
 
-        	var excludeProperties = function(item) {
-	        	var value = criteria.toLowerCase();
-	          	// console.log(escape(item.playwright).toLowerCase());
-	          	return escape(item.character).toLowerCase().indexOf(value || '') !== -1 || 
-                   	   escape(item.playwright).toLowerCase().indexOf(value || '') !== -1;
-        	};
+		MonologuesControllerDataService.getMonologuesListForCtrl(null, function (isValid, responce) {
+			if (isValid) {
+				self.monologues = responce;
+			} else {
+				$log('Error in the controller')
+			}
+		});
 
-          	results = $filter('filter')(data, excludeProperties, criteria);
-          	return results;
-        }
-      }
-    })
+		self.adjustedFilterSearch = function() {
+			self.results = $filter('adjustedFuzzySearch')(self.monologues, self.criteriaSimple);
+		};
 
-  .controller('MonologuesCtrl', function ($log, $filter, MonologuesControllerDataService) {
-  	var self = this;
-
-  	self.userInput;
-  	self.results;
-  	self.monologues;
-
-  	MonologuesControllerDataService.getMonologuesListForCtrl(null, 
-        function (isValid, responce) {
-        	if (isValid) {
-          		self.monologues = responce;
-        	} else {
-          		$log('BEANS')
-        }
-    });
-
-  	self.adjustedFilterSearch = function() {
-        self.results = $filter('adjustedFuzzySearch')(self.monologues, self.userInput);
-    };
-
-
-    // $http.get('/api/monologues')
-    // .success(function(data) {
-    //   self.monologues = data;
-    //   console.log(self.monologues);
-    // })
-    // .error(function(err) {
-    //   alert('Error! Something went wrong');
-    // });
+		self.advancedSearch = function() {
+			self.results = $filter('multifieldSearch')(self.monologues, self.criteriaAdvanced);
+		};
 
 });
