@@ -4,8 +4,30 @@
  */
 
 'use strict';
+import Monologue from '../api/monologue/monologue.model';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+
+Monologue.find({}).removeAsync()
+  .then(() => {
+    Monologue.createAsync({
+      playwright: 'William Shakespeare',
+      title: 'The Merchant of Venice',
+      character: 'Launcelot',
+      body: "Certainly my conscience will serve me to run from this Jew my master. The fiend is at mine elbow and tempts me, saying to me, 'Gobbo, Launcelot Gobbo, good Launcelot,' or 'good Gobbo,' or 'good Launcelot Gobbo -- use your legs, take the start, run away.' My conscience says, 'No. Take heed, honest Launcelot; take heed, honest Gobbo,' or as aforesaid, 'honest Launcelot Gobbo -- do not run; scorn running with thy heels.' Well, the most courageous fiend bids me pack. 'Fia!' says the fiend; 'away!' says the fiend. 'For the heavens, rouse up a brave mind,' says the fiend, 'and run.' Well, my conscience hanging about the neck of my heart says very wisely to me, 'My honest friend Launcelot, being an honest man's son' -- or rather 'an honest woman's son,' for indeed my father did something smack, something grow to; he had a kind of taste -- Well, my conscience says, 'Launcelot, budge not.' 'Budge,' says the fiend. 'Budge not,' says my conscience. 'Conscience,' say I, 'you counsel well.' 'Fiend,' say I, 'you counsel well.' To be ruled by my conscience, I should stay with the Jew my master who, God bless the mark, is a kind of devil; and to run away from the Jew, I should be ruled by the fiend who, saving your reverence, is the devil himself. Certainly the Jew is the very devil incarnation; And in my conscience, my conscience is but a kind of hard conscience to offer to counsel me to stay with the Jew. The fiend gives the more friendly counsel. I will run, fiend; my heels are at your commandment; I will run.",
+      chapter: {
+        act: '1',
+        scene: '1'
+      },
+      tags: ['classical', 'Shakespearean'],
+      meta: {
+        curated: { type: false }
+        // date: { type: Date.now }
+      }
+    }, {
+      
+    });
+  });
 
 Thing.find({}).removeAsync()
   .then(() => {
