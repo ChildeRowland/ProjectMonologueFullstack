@@ -15,7 +15,7 @@ angular.module('projectMonologueFullstackApp')
 
         	var excludeProperties = function(item) {
 	        	var value = criteria.toLowerCase();
-	          	// console.log(escape(item.playwright).toLowerCase());
+	          	console.log(escape(item.playwright).toLowerCase());
 	          	return escape(item.title).toLowerCase().indexOf(value || '') !== -1 || 
                      escape(item.character).toLowerCase().indexOf(value || '') !== -1 ||
                    	 escape(item.playwright).toLowerCase().indexOf(value || '') !== -1;
@@ -29,29 +29,46 @@ angular.module('projectMonologueFullstackApp')
 
 // Advanced Search
 // Multiple inputs, all must match
-    .filter('multifieldSearch', function($filter) {
+  .filter('multifieldSearch', function($filter) {
     var results;
 
-    return function(data, criteria) {
+    return function(data, criteria, propValues) {
       // Check for any value in the search criteria properties.
       var iterateProperties = function(obj) {
+        var isEmpty = true;
+
         for ( var prop in obj ) {
-          if ( obj[prop].length > 1 ) {
-            return false
+          // console.log(obj[prop]);
+          if ( obj[prop].length > 0 ) {
+            isEmpty = false;
+            return isEmpty;
+            console.log(isEmpty);
+          } else {
+            isEmpty = true;
+            console.log(obj[prop].length);
           }
         }
+        return isEmpty;
       };
 
       if ( iterateProperties(criteria) ) {
         results = null;
       } else {
-        results = $filter('filter')(data, criteria);
-        if ( criteria.gender != "leave unspecified" ) {
-          results = $filter('filter')(results, criteria.gender, true);
+        results = $filter('filter')(data, criteria); 
+
+        for (var item in propValues) {
+          var objectProperty = criteria[propValues[item]];
+          if ( objectProperty != "" ) {
+            results = $filter('filter')(results, objectProperty, true);
+          }
         }
-        if ( criteria.age != "leave unspecified" ) {
-          results = $filter('filter')(results, criteria.age, true);
-        }
+
+        // if ( criteria.gender != "" ) {
+        //     results = $filter('filter')(results, criteria.gender, true);
+        // }
+        // if ( criteria.age != "" ) {
+        //     results = $filter('filter')(results, criteria.age, true);
+        // }
       }
 
       return results;
