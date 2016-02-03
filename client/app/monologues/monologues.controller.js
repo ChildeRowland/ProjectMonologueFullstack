@@ -16,6 +16,20 @@ angular.module('projectMonologueFullstackApp')
 		}
 	})
 
+	.directive('cmSimpleSearch', function() {
+		return { 
+			templateUrl: 'app/monologues/partials/simplesearch.html',
+			scope: false
+		}
+	})
+
+	.directive('cmAdvancedSearch', function() {
+		return { 
+			templateUrl: 'app/monologues/partials/advancedsearch.html',
+			scope: false
+		}
+	})
+
 	.controller('MonologuesCtrl', function ($log, $filter, GENDEROPTIONS, AGEOPTIONS, GENDERLIST, AGELIST, MonologuesControllerDataService, monologueResource) {
 		var self = this;
 		
@@ -30,6 +44,17 @@ angular.module('projectMonologueFullstackApp')
 		self.ageList = AGELIST;
 		// self.criteriaAdvanced.gender = Object.keys(self.genderOptions[0])[0];
 		// self.criteriaAdvanced.age = "leave unspecified";
+
+		self.isSimpleSearch = true;
+
+		self.switchSearch = function() {
+			if ( self.isSimpleSearch === true ) {
+				self.isSimpleSearch = false;
+			} else {
+				self.isSimpleSearch = true;
+			}
+			console.log(self.isSimpleSearch);
+		};
 
 		MonologuesControllerDataService.getMonologuesListForCtrl(null, function (isValid, responce) {
 			if (isValid) {

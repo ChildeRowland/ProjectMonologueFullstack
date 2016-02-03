@@ -1,0 +1,54 @@
+<div class="col-md-6">
+	<h4>Search with Multiple Filters</h4>
+	<br />
+
+	<input type="text" 
+         ng-model="ctrl.criteriaAdvanced.playwright"
+         ng-change="ctrl.advancedSearch()"
+         placeholder="Playwright" />
+  	<br /><br />
+
+  	<input type="text" 
+         ng-model="ctrl.criteriaAdvanced.title"
+         ng-change="ctrl.advancedSearch()"
+         placeholder="Title" />
+  	<br /><br />
+
+  	<input type="text" 
+         ng-model="ctrl.criteriaAdvanced.character"
+         ng-change="ctrl.advancedSearch()"
+         placeholder="Character" />
+  	<br /><br />
+
+  	<div ng-repeat="obj in ctrl.genderOptions">
+      <div ng-repeat="(k, v) in obj">
+    		<input type="radio"
+    			   name="selectGender"
+    			   ng-model="ctrl.criteriaAdvanced.gender"
+    			   ng-change="ctrl.advancedSearch()"
+    			   ng-value="v"/>
+    		<span ng-bind="k"></span>
+      </div>
+  	</div>
+  	<br /><br />
+
+  	<div ng-repeat="obj in ctrl.ageOptions">
+      <div ng-repeat="(k, v) in obj">
+    		<input type="radio"
+    			   name="selectAge"
+    			   ng-model="ctrl.criteriaAdvanced.age"
+    			   ng-change="ctrl.advancedSearch()"
+    			   ng-value="v"/>
+    		<span ng-bind="k"></span>
+      </div>
+  	</div>
+  	<br /><br />
+
+</div>
+
+<div class="col-md-6">
+    <button class="btn btn-warning"
+    		ng-click="ctrl.switchSearch()">
+        Switch to Simple Search
+    </button>
+</div>

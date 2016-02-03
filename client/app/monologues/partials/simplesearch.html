@@ -1,0 +1,19 @@
+<div class="col-md-6">
+	<h4>Search by Playwright, Title, or Character</h4>
+	<br />
+
+	<input type="text" 
+         ng-model="ctrl.criteriaSimple"
+         ng-change="ctrl.adjustedFilterSearch()"
+         placeholder="playwright, character, or title" />
+  <br /><br />
+</div>
+
+<div class="col-md-6">
+    <button class="btn btn-primary"
+    		ng-click="ctrl.switchSearch()">
+        Switch to Advanced Search
+    </button>
+</div>
+
+  

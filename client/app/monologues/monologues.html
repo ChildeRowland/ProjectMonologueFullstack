@@ -1,17 +1,18 @@
 
 <div class="col-md-12">
-	Search:
 
-	<input type="text" 
-         ng-model="ctrl.criteriaSimple"
-         ng-change="ctrl.adjustedFilterSearch()"
-         placeholder="playwright, character, or title" />
-  <br /><br />
-
-  <div ng-repeat="monologue in ctrl.results">
-    <div cm-show-monologue></div>
+  <div cm-simple-search
+       ng-if="ctrl.isSimpleSearch">
   </div>
 
-  <div cm-developer-portal></div>
+  <div cm-advanced-search
+       ng-if="!ctrl.isSimpleSearch">
+  </div>
+
+  <div ng-repeat="monologue in ctrl.results">
+      <div cm-show-monologue></div>
+  </div>
+
+    <div cm-developer-portal></div>
 </div>
 
