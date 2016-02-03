@@ -10,6 +10,8 @@ angular.module('projectMonologueFullstackApp')
 	{'other': 'other'}
 ])
 
+.value('GENDERLIST', [ 'male', 'female', 'transgender', 'other' ])
+
 .value('AGEOPTIONS', [
 	{'leave unspecified': ''},
 	{'child': 'child'},
@@ -18,3 +20,5 @@ angular.module('projectMonologueFullstackApp')
 	{'adult': 'adult'},
 	{'senior': 'senior'}
 ])
+
+.value('AGELIST', [ 'child', 'teenager', 'young adult', 'adult', 'senior'])

@@ -8,22 +8,10 @@
          placeholder="playwright, character, or title" />
   <br /><br />
 
-  {{ ctrl.userInput }}
-
   <div ng-repeat="monologue in ctrl.results">
-    <div>
-      <label>Playwright</label>
-      <span ng-bind="monologue.playwright"></span>
-    </div>
-    <div>
-      <label>Character</label>
-      <span ng-bind="monologue.character"></span>
-    </div>
-    <br />
+    <div cm-show-monologue></div>
   </div>
 
-  <pre>
-    {{ ctrl.monologues | json }}
-  </pre>
+  <div cm-developer-portal></div>
 </div>
 

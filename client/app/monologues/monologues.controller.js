@@ -2,17 +2,32 @@
 
 angular.module('projectMonologueFullstackApp')
 
-	.controller('MonologuesCtrl', function ($http, $log, $filter, GENDEROPTIONS, AGEOPTIONS, MonologuesControllerDataService, monologueResource) {
+	.directive('cmShowMonologue', function() {
+		return {
+			templateUrl: 'app/monologues/partials/show.html',
+			scope: false
+		}
+	})
+
+	.directive('cmDeveloperPortal', function() {
+		return {
+			templateUrl: 'app/monologues/partials/developer.html',
+			scope: false
+		}
+	})
+
+	.controller('MonologuesCtrl', function ($log, $filter, GENDEROPTIONS, AGEOPTIONS, GENDERLIST, AGELIST, MonologuesControllerDataService, monologueResource) {
 		var self = this;
-
-		self.states = ['', 'California', 'Florida', 'New York'];
-
+		
 		self.results;
 		self.monologues;
 		self.criteriaAdvanced = {};
 
 		self.genderOptions = GENDEROPTIONS;
 		self.ageOptions = AGEOPTIONS;
+
+		self.genderList = GENDERLIST;
+		self.ageList = AGELIST;
 		// self.criteriaAdvanced.gender = Object.keys(self.genderOptions[0])[0];
 		// self.criteriaAdvanced.age = "leave unspecified";
 
@@ -31,6 +46,10 @@ angular.module('projectMonologueFullstackApp')
 		self.advancedSearch = function() {
 			self.results = $filter('multifieldSearch')(self.monologues, self.criteriaAdvanced, ['gender', 'age']);
 		};
+
+		self.fullView = function(obj) {
+			console.log(obj);
+		}
 
 
 		self.submitMonologue = function() {

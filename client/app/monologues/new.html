@@ -29,26 +29,18 @@
 
 		<div>
 			<label>Gender</label>
-			<select ng-options"key as key for key in ctrl.states"
-					ng-model="ctrl.newMonologue.gender">
+			<select ng-options="gender as gender for gender in ctrl.genderList"
+					ng-model="ctrl.newMonologue.gender"
+					ng-init="ctrl.newMonologue.gender = 'other'">
 			</select>
-			{{ ctrl.genderOptions }}
 		</div>
 
 		<div>
-		  	<label>Gender</label>
-		  	<input type="text"
-		  		   ng-model="ctrl.newMonologue.gender"
-		  		   value="other"
-		  		   required>
-		</div>
-
-		<div>
-		  	<label>age</label>
-		  	<input type="text"
-		  		   ng-model="ctrl.newMonologue.age"
-		  		   value="adult"
-		  		   required>
+			<label>Age</label>
+			<select ng-options="age as age for age in ctrl.ageList"
+				    ng-model="ctrl.newMonologue.age"
+				    ng-init="ctrl.newMonologue.age = 'adult'">
+			</select>
 		</div>
 
 		<div>
@@ -57,6 +49,11 @@
 		  		   ng-model="ctrl.newMonologue.body"
 		  		   required>
 		</div>
+
+		<input type="submit"
+			   value="cancel"
+			   ui-sref="main"
+			   class="btn btn-warning">
 
 		<input type="submit"
 			   value="submit"
