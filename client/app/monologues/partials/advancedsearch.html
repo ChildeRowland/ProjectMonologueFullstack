@@ -1,6 +1,9 @@
-<div class="col-md-6">
-	<h4>Search with Multiple Filters</h4>
-	<br />
+<div class="col-md-12">
+  <h4>Search with Multiple Filters</h4>
+  <br />
+</div>
+
+<div class="col-md-4">
 
 	<input type="text" 
          ng-model="ctrl.criteriaAdvanced.playwright"
@@ -19,6 +22,9 @@
          ng-change="ctrl.advancedSearch()"
          placeholder="Character" />
   	<br /><br />
+
+  </div>
+  <div class="col-md-4">
 
   	<div ng-repeat="obj in ctrl.genderOptions">
       <div ng-repeat="(k, v) in obj">
@@ -46,7 +52,7 @@
 
 </div>
 
-<div class="col-md-6">
+<div class="col-md-4">
     <button class="btn btn-warning"
     		ng-click="ctrl.switchSearch()">
         Switch to Simple Search

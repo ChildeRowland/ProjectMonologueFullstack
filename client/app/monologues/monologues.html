@@ -1,6 +1,10 @@
 
 <div class="col-md-12">
 
+  <div cm-single-view
+       ng-if="ctrl.singleViewObject">
+  </div>
+
   <div cm-simple-search
        ng-if="ctrl.isSimpleSearch">
   </div>
@@ -13,6 +17,14 @@
       <div cm-show-monologue></div>
   </div>
 
-    <div cm-developer-portal></div>
+  <div class="col-md-12">
+    <button ng-click="ctrl.switchDev()"
+            class="btn btn-dev">
+          dev-view
+    </button>
+  </div>
+    <div cm-developer-portal
+         ng-if="ctrl.isdeveloperView">
+    </div>
 </div>
 

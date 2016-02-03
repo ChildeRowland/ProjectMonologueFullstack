@@ -10,12 +10,12 @@ angular.module('projectMonologueFullstackApp')
         controllerAs: 'ctrl'
       })
 
-      .state('monologuesAdvanced', {
-        url: '/monologues/advanced',
-        templateUrl: 'app/monologues/advanced.html',
-        controller: 'MonologuesCtrl',
-        controllerAs: 'ctrl'
-      })
+      // .state('monologuesAdvanced', {
+      //   url: '/monologues/advanced',
+      //   templateUrl: 'app/monologues/advanced.html',
+      //   controller: 'MonologuesCtrl',
+      //   controllerAs: 'ctrl'
+      // })
 
       .state('monologuesNew', {
         url: '/monologues/new',

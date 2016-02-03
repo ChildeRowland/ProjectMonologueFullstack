@@ -2,35 +2,7 @@
 
 angular.module('projectMonologueFullstackApp')
 
-	.directive('cmShowMonologue', function() {
-		return {
-			templateUrl: 'app/monologues/partials/show.html',
-			scope: false
-		}
-	})
-
-	.directive('cmDeveloperPortal', function() {
-		return {
-			templateUrl: 'app/monologues/partials/developer.html',
-			scope: false
-		}
-	})
-
-	.directive('cmSimpleSearch', function() {
-		return { 
-			templateUrl: 'app/monologues/partials/simplesearch.html',
-			scope: false
-		}
-	})
-
-	.directive('cmAdvancedSearch', function() {
-		return { 
-			templateUrl: 'app/monologues/partials/advancedsearch.html',
-			scope: false
-		}
-	})
-
-	.controller('MonologuesCtrl', function ($log, $filter, GENDEROPTIONS, AGEOPTIONS, GENDERLIST, AGELIST, MonologuesControllerDataService, monologueResource) {
+	.controller('MonologuesCtrl', function ($log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, GENDERLIST, AGELIST, MonologuesControllerDataService, monologueResource) {
 		var self = this;
 		
 		self.results;
@@ -53,7 +25,26 @@ angular.module('projectMonologueFullstackApp')
 			} else {
 				self.isSimpleSearch = true;
 			}
-			console.log(self.isSimpleSearch);
+		};
+
+		self.singleViewObject = null;
+
+		self.singleViewToggle = function() {
+			self.singleViewObject = null;
+		};
+
+		self.fullView = function(obj) {
+			self.singleViewObject = obj;
+		};
+
+		self.isdeveloperView = false;
+
+		self.switchDev = function() {
+			if ( self.isdeveloperView === true ) {
+				self.isdeveloperView = false;
+			} else {
+				self.isdeveloperView = true;
+			}
 		};
 
 		MonologuesControllerDataService.getMonologuesListForCtrl(null, function (isValid, responce) {
@@ -72,15 +63,11 @@ angular.module('projectMonologueFullstackApp')
 			self.results = $filter('multifieldSearch')(self.monologues, self.criteriaAdvanced, ['gender', 'age']);
 		};
 
-		self.fullView = function(obj) {
-			console.log(obj);
-		}
-
-
 		self.submitMonologue = function() {
 			monologueResource.save(self.newMonologue).$promise
         	.then(function onSuccess(responce) {
         		console.log(responce);
+        		$state.go('monologues');
         	}, function onError(error) {
         		console.log(error);
         	})

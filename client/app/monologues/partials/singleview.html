@@ -1,0 +1,17 @@
+<div class="col-md-12">
+	<div class="single-view">
+
+		<div>
+			<span>{{ ctrl.singleViewObject.title + ' by ' + ctrl.singleViewObject.playwright }}</span>
+		</div>
+
+		<div ng-repeat="(key, value) in ctrl.singleViewObject">
+			<span ng-bind="value"></span>
+		</div>
+
+		<button class="btn btn-warning"
+		        ng-click="ctrl.singleViewToggle()">
+			Close and Return
+		</button>
+	</div>
+</div>
