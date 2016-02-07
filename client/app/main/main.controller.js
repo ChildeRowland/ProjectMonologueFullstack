@@ -1,31 +1,21 @@
 'use strict';
 
-(function() {
-
-class MainController {
-
-  constructor($http) {
-    this.$http = $http;
-    this.awesomeThings = [];
-
-    $http.get('/api/things').then(response => {
-      this.awesomeThings = response.data;
-    });
-  }
-
-  addThing() {
-    if (this.newThing) {
-      this.$http.post('/api/things', { name: this.newThing });
-      this.newThing = '';
-    }
-  }
-
-  deleteThing(thing) {
-    this.$http.delete('/api/things/' + thing._id);
-  }
-}
-
 angular.module('projectMonologueFullstackApp')
-  .controller('MainController', MainController);
 
-})();
+  .controller('MainController', function() {
+    var self = this;
+
+    self.toDoList = [
+      { todo: "UI_STATES for navigation" },
+      { todo: "monologueEngineDTO" },
+      { todo: "dynamic lists for age and gender" },
+      { todo: "add auto fill to new monologue form" },
+      { todo: "Replace css modal with uiBootrap" },
+      { todo: "phantomjs error preventing tests" },
+      { 
+        todo: "infinty scrolling for search results",
+        resource: "https://sroze.github.io/ngInfiniteScroll/" 
+      }
+    ];
+
+  });

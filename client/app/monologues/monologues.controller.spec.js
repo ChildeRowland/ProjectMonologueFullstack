@@ -19,3 +19,18 @@ describe('Controller: MonologuesCtrl', function () {
     expect(1).toEqual(1);
   });
 });
+
+describe('Test Monologue Services', function() {
+  var testSubject;
+
+  beforeEach(module('projectMonologueFullstackApp'));
+
+  beforeEach(inject(function (_monologueResource_) {
+    testSubject = _monologueResource_;
+  }));
+
+  it('should return $resource with an endpoint', function () {
+    expect(1).toBeTruthy;
+  });
+
+});

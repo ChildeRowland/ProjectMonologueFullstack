@@ -1,18 +1,17 @@
+<navbar></navbar>
+
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    <h1>Project Monologue</h1>
+    <p class="lead">Thanks for visiting the initial deployment of ProjectMonologue, a full stack application build on the angular-fullstack scaffolding.  The app is intended to help actors sort through plays, playwrights, and monologues.</p>
   </div>
 </header>
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
+  <h3>Pending Features</h3>
+  <div ng-repeat="obj in ctrl.toDoList">
+    <div ng-repeat="(key, value) in obj">
+      <span ng-bind="value"></span>
     </div>
   </div>
 </div>

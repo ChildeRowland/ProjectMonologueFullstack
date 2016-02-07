@@ -2,8 +2,18 @@
 
 angular.module('projectMonologueFullstackApp')
 
-	.controller('MonologuesCtrl', function ($log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, GENDERLIST, AGELIST, MonologuesControllerDataService, monologueResource) {
+	.factory('MonologueEngineDTO', function () {
+		function MonologueEngine() {
+			var self = this;
+		};
+
+		return MonologueEngine;
+	})
+
+	.controller('MonologuesCtrl', function (MonologueEngineDTO, $log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, AGELIST, MonologuesControllerDataService, monologueResource) {
 		var self = this;
+
+		self.me = new MonologueEngineDTO;
 		
 		self.results;
 		self.monologues;
@@ -12,13 +22,18 @@ angular.module('projectMonologueFullstackApp')
 		self.genderOptions = GENDEROPTIONS;
 		self.ageOptions = AGEOPTIONS;
 
-		self.genderList = GENDERLIST;
 		self.ageList = AGELIST;
-		// self.criteriaAdvanced.gender = Object.keys(self.genderOptions[0])[0];
-		// self.criteriaAdvanced.age = "leave unspecified";
+		self.genderList = (function() {
+			var newArray = [];
+			angular.forEach(self.genderOptions, function(obj) { 
+				if ( obj['value'].length > 1 ) {
+					newArray.push(obj['value']);
+				}
+			})
+			return newArray;
+		})();
 
 		self.isSimpleSearch = true;
-
 		self.switchSearch = function() {
 			if ( self.isSimpleSearch === true ) {
 				self.isSimpleSearch = false;
@@ -28,17 +43,14 @@ angular.module('projectMonologueFullstackApp')
 		};
 
 		self.singleViewObject = null;
-
 		self.singleViewToggle = function() {
 			self.singleViewObject = null;
 		};
-
 		self.fullView = function(obj) {
 			self.singleViewObject = obj;
 		};
 
 		self.isdeveloperView = false;
-
 		self.switchDev = function() {
 			if ( self.isdeveloperView === true ) {
 				self.isdeveloperView = false;
@@ -70,7 +82,18 @@ angular.module('projectMonologueFullstackApp')
         		$state.go('monologues');
         	}, function onError(error) {
         		console.log(error);
-        	})
+        	});
 		};
 
+		self.transformForTypeahead = function(array, prop) {
+			var newArray = [];
+
+			angular.forEach(array, function(obj) {
+				if (newArray.indexOf(obj[prop]) == -1) {
+					newArray.push(obj[prop]);
+				}
+			})
+			return newArray;
+		};
+		
 });

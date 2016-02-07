@@ -25,28 +25,25 @@
 
   </div>
   <div class="col-md-4">
-
   	<div ng-repeat="obj in ctrl.genderOptions">
-      <div ng-repeat="(k, v) in obj">
     		<input type="radio"
     			   name="selectGender"
     			   ng-model="ctrl.criteriaAdvanced.gender"
+             ng-init="ctrl.criteriaAdvanced.gender = ''"
     			   ng-change="ctrl.advancedSearch()"
-    			   ng-value="v"/>
-    		<span ng-bind="k"></span>
-      </div>
+    			   ng-value="obj.value"/>
+    		<span ng-bind="obj.name"></span>
   	</div>
   	<br /><br />
 
   	<div ng-repeat="obj in ctrl.ageOptions">
-      <div ng-repeat="(k, v) in obj">
     		<input type="radio"
     			   name="selectAge"
     			   ng-model="ctrl.criteriaAdvanced.age"
+             ng-init="ctrl.criteriaAdvanced.age = ''"
     			   ng-change="ctrl.advancedSearch()"
-    			   ng-value="v"/>
-    		<span ng-bind="k"></span>
-      </div>
+    			   ng-value="obj.value"/>
+    		<span ng-bind="obj.name"></span>
   	</div>
   	<br /><br />
 

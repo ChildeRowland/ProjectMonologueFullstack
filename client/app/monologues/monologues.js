@@ -22,5 +22,6 @@ angular.module('projectMonologueFullstackApp')
         templateUrl: 'app/monologues/new.html',
         controller: 'MonologuesCtrl',
         controllerAs: 'ctrl'
+        // authenticate: ['user', 'admin']
       });
   });

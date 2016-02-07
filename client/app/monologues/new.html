@@ -1,6 +1,8 @@
+<navbar></navbar>
 
 <div class="container">
-	New Monologue
+
+	<h3>New Monologue</h3>
 
 	<form name="ctrl.newMonologue"
 		  ng-submit="ctrl.submitMonologue()"
@@ -10,6 +12,7 @@
 		  	<label>Playwright</label>
 		  	<input type="text"
 		  		   ng-model="ctrl.newMonologue.playwright"
+		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'playwright') | filter:$viewValue"
 		  		   required>
 		</div>
 
