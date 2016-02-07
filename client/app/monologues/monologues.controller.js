@@ -5,6 +5,7 @@ angular.module('projectMonologueFullstackApp')
 	.factory('MonologueEngineDTO', function () {
 		function MonologueEngine() {
 			var self = this;
+			// clean-up the MonologuesCtrl
 		};
 
 		return MonologueEngine;
@@ -36,8 +37,12 @@ angular.module('projectMonologueFullstackApp')
 		self.isSimpleSearch = true;
 		self.switchSearch = function() {
 			if ( self.isSimpleSearch === true ) {
+				self.criteriaSimple = "";
+				self.adjustedFilterSearch();
 				self.isSimpleSearch = false;
 			} else {
+				self.criteriaAdvanced = {};
+				self.advancedSearch();
 				self.isSimpleSearch = true;
 			}
 		};

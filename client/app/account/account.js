@@ -21,9 +21,13 @@ angular.module('projectMonologueFullstackApp')
           $state.go(referrer);
         }
       })
+      // redirect so no new users
       .state('signup', {
         url: '/signup',
         templateUrl: 'app/account/signup/signup.html',
+        onEnter: function($state) {
+          $state.go('main');
+        },
         controller: 'SignupController',
         controllerAs: 'vm'
       })

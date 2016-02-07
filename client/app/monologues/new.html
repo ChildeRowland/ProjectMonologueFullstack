@@ -12,7 +12,8 @@
 		  	<label>Playwright</label>
 		  	<input type="text"
 		  		   ng-model="ctrl.newMonologue.playwright"
-		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'playwright') | filter:$viewValue"
+		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'playwright') | filter:$viewValue | limitTo:5"
+		  		   typeahead-min-length="2"
 		  		   required>
 		</div>
 
@@ -20,6 +21,8 @@
 		  	<label>Play Name</label>
 		  	<input type="text"
 		  		   ng-model="ctrl.newMonologue.title"
+		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'title') | filter:$viewValue | limitTo:5"
+		  		   typeahead-min-length="2"
 		  		   required>
 		</div>
 
@@ -27,6 +30,8 @@
 		  	<label>Character</label>
 		  	<input type="text"
 		  		   ng-model="ctrl.newMonologue.character"
+		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'character') | filter:$viewValue | limitTo:5"
+		  		   typeahead-min-length="2"
 		  		   required>
 		</div>
 

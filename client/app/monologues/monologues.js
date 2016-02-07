@@ -1,23 +1,17 @@
 'use strict';
 
 angular.module('projectMonologueFullstackApp')
-  .config(function ($stateProvider) {
+
+  .config(function ($stateProvider, $urlRouterProvider, UI_STATES) {
     $stateProvider
-      .state('monologues', {
+      .state(UI_STATES.kMonologueState.name, {
         url: '/monologues',
         templateUrl: 'app/monologues/monologues.html',
         controller: 'MonologuesCtrl',
         controllerAs: 'ctrl'
       })
 
-      // .state('monologuesAdvanced', {
-      //   url: '/monologues/advanced',
-      //   templateUrl: 'app/monologues/advanced.html',
-      //   controller: 'MonologuesCtrl',
-      //   controllerAs: 'ctrl'
-      // })
-
-      .state('monologuesNew', {
+      .state(UI_STATES.kMonologueNewState.name, {
         url: '/monologues/new',
         templateUrl: 'app/monologues/new.html',
         controller: 'MonologuesCtrl',
@@ -25,3 +19,4 @@ angular.module('projectMonologueFullstackApp')
         // authenticate: ['user', 'admin']
       });
   });
+// $urlRouterProvider, UI_STATES

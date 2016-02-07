@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('projectMonologueFullstackApp')
-  .config(function($stateProvider) {
+  .config(function($stateProvider, $urlRouterProvider, UI_STATES) {
     $stateProvider
-      .state('main', {
+      .state(UI_STATES.kMainState.name, {
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',

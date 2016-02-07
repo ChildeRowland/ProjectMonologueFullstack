@@ -6,11 +6,11 @@ angular.module('projectMonologueFullstackApp')
     var self = this;
 
     self.toDoList = [
-      { todo: "UI_STATES for navigation" },
       { todo: "monologueEngineDTO" },
-      { todo: "dynamic lists for age and gender" },
-      { todo: "add auto fill to new monologue form" },
+      { todo: "dynamic lists for age" },
+      { todo: "Show matching monologues for duplicate before add" },
       { todo: "Replace css modal with uiBootrap" },
+      { todo: "Clean view for one monologue" },
       { todo: "phantomjs error preventing tests" },
       { 
         todo: "infinty scrolling for search results",
