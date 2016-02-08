@@ -2,6 +2,10 @@
 
 angular.module('projectMonologueFullstackApp') 
 
+	.factory('monologueDeleteResource', function($resource) {
+	  return $resource('/api/monologues/:id');
+	})
+
 	.factory('monologueResource', function($resource) {
 	  return $resource('/api/monologues');
 	})
