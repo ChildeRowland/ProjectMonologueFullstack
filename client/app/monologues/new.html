@@ -1,71 +1,86 @@
 <navbar></navbar>
 
 <div class="container">
+	<div class="col-md-6">
 
-	<h3>New Monologue</h3>
+		<form name="ctrl.newMonologue"
+			  ng-submit="ctrl.submitMonologue()"
+			  validate>
 
-	<form name="ctrl.newMonologue"
-		  ng-submit="ctrl.submitMonologue()"
-		  validate>
+			<div class="form-group">
+			  	<label>Playwright</label>
+			  	<input type="text"
+			  		   class="form-control"
+			  		   ng-model="ctrl.newMonologue.playwright"
+			  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'playwright') | filter:$viewValue | limitTo:5"
+			  		   typeahead-min-length="2"
+			  		   required>
+			</div>
 
-		<div>
-		  	<label>Playwright</label>
-		  	<input type="text"
-		  		   ng-model="ctrl.newMonologue.playwright"
-		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'playwright') | filter:$viewValue | limitTo:5"
-		  		   typeahead-min-length="2"
-		  		   required>
-		</div>
+			<div class="form-group">
+			  	<label>Play Name</label>
+			  	<input type="text"
+			  		   class="form-control"
+			  		   ng-model="ctrl.newMonologue.title"
+			  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'title') | filter:$viewValue | limitTo:5"
+			  		   typeahead-min-length="2"
+			  		   required>
+			</div>
 
-		<div>
-		  	<label>Play Name</label>
-		  	<input type="text"
-		  		   ng-model="ctrl.newMonologue.title"
-		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'title') | filter:$viewValue | limitTo:5"
-		  		   typeahead-min-length="2"
-		  		   required>
-		</div>
+			<div class="form-group">
+			  	<label>Character</label>
+			  	<input type="text"
+			  		   class="form-control"
+			  		   ng-model="ctrl.newMonologue.character"
+			  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'character') | filter:$viewValue | limitTo:5"
+			  		   typeahead-min-length="2"
+			  		   required>
+			</div>
 
-		<div>
-		  	<label>Character</label>
-		  	<input type="text"
-		  		   ng-model="ctrl.newMonologue.character"
-		  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'character') | filter:$viewValue | limitTo:5"
-		  		   typeahead-min-length="2"
-		  		   required>
-		</div>
+			<div class="form-inline">
+				<div class="form-group form-selector">
+					<label>Gender</label>
+					<select class="form-control"
+							ng-options="gender as gender for gender in ctrl.genderList"
+							ng-model="ctrl.newMonologue.gender"
+							ng-init="ctrl.newMonologue.gender = 'other'">
+					</select>
+				</div>
 
-		<div>
-			<label>Gender</label>
-			<select ng-options="gender as gender for gender in ctrl.genderList"
-					ng-model="ctrl.newMonologue.gender"
-					ng-init="ctrl.newMonologue.gender = 'other'">
-			</select>
-		</div>
+				<div class="form-group form-selector">
+					<label>Age</label>
+					<select class="form-control"
+							ng-options="age as age for age in ctrl.ageList"
+						    ng-model="ctrl.newMonologue.age"
+						    ng-init="ctrl.newMonologue.age = 'adult'">
+					</select>
+				</div>
+			</div>
 
-		<div>
-			<label>Age</label>
-			<select ng-options="age as age for age in ctrl.ageList"
-				    ng-model="ctrl.newMonologue.age"
-				    ng-init="ctrl.newMonologue.age = 'adult'">
-			</select>
-		</div>
+			<div class="form-group">
+			  	<label>Monologue</label>
+			  	<textarea type="text"
+			  		   	  class="form-control"
+			  		   	  rows="6"
+			  		      ng-model="ctrl.newMonologue.body"
+			  		      required>
+			  	</textarea>
+			</div>
 
-		<div>
-		  	<label>Monologue</label>
-		  	<input type="textarea"
-		  		   ng-model="ctrl.newMonologue.body"
-		  		   required>
-		</div>
+			<input type="button"
+				   value="cancel"
+				   ui-sref="monologues"
+				   class="btn btn-margot">
 
-		<input type="submit"
-			   value="cancel"
-			   ui-sref="monologues"
-			   class="btn btn-warning">
+			<input type="submit"
+				   value="submit"
+				   class="btn btn-cash">
 
-		<input type="submit"
-			   value="submit"
-			   class="btn btn-primary">
+		</form>
+	</div>
 
-	</form>
+	<div class="col-md-6">
+		<h3>Add Monologue</h3>
+		<h3>check for duplicates?</h3>
+	</div>
 </div>

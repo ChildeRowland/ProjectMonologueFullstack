@@ -14,33 +14,67 @@
     outline: 9999px solid rgba(0,0,0,0.5);
 }
 
+/*  Forms  */
+
+.form-group {
+    color: #65664A;
+    font-size: 1.1em;
+}
+
+.form-control:focus {
+    border-color: #E2E3C1;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(206, 172, 125, .6);
+}
+
+.form-selector {
+    margin-left: 2em;
+}
+
+.btn-margot {
+    color: white;
+    background-color: #FA6986;
+    border-color: #FF5072;
+}
+
+.btn-margot:hover {
+    color: white;
+    background-color: #FF5072;
+}
+
+.btn-margot:active {
+    color: white;
+    background-color: #FF3F65;
+}
+
+.btn-cash {
+    color: white;
+    background-color: #69B88C;
+    border-color: #389244;
+}
+
+.btn-cash:hover {
+    color: white;
+    background-color: #71D69E;
+}
+
+.btn-cash:active {
+    color: white;
+    background-color: #A8DEA8;
+}
+
 .btn-dev {
+    background-color: #D4CDCD;
 	font-size: 10px;
 	padding: 2px;
 }
 
-/*.typeahead-demo .custom-popup-wrapper {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    background-color: #f9f9f9;
-  }
+/* 
 
-  .typeahead-demo .custom-popup-wrapper > .message {
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-    color: #868686;
-  }
+CACC97 base
+65664A mold
+69B88C green tea
+FA6986 pink
+E2E3C1 leather
 
-  .typeahead-demo .custom-popup-wrapper > .dropdown-menu {
-    position: static;
-    float: none;
-    display: block;
-    min-width: 160px;
-    background-color: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }*/
+*/
+
