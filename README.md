@@ -1,5 +1,14 @@
 # project-monologue-fullstack
 
+Actors' resource for finding monologues.  Filter the database by multiple properties, select one to view in a modal.
+
+Anyone can search.  When users log in, they can add new monlogues and save monologues to a list of favorites.  
+
+Curators view recent additons for accuracy and consistency. 
+
+
+# Scafolding
+
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.2.0.
 
 ## Getting Started
