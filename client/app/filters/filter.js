@@ -42,10 +42,8 @@ angular.module('projectMonologueFullstackApp')
           if ( obj[prop].length > 0 ) {
             isEmpty = false;
             return isEmpty;
-            console.log(isEmpty);
           } else {
             isEmpty = true;
-            console.log(obj[prop].length);
           }
         }
         return isEmpty;

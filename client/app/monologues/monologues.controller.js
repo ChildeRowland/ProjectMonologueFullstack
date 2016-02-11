@@ -80,14 +80,24 @@ angular.module('projectMonologueFullstackApp')
 			self.results = $filter('multifieldSearch')(self.monologues, self.criteriaAdvanced, ['gender', 'age']);
 		};
 
+		self.isObjComplete = function () {
+			var properties = ['playwright', 'title', 'character', 'body'];
+
+			return properties.every(prop => ( self.newMonologue[prop]) );
+		}
+
 		self.submitMonologue = function() {
-			monologueResource.save(self.newMonologue).$promise
-        	.then(function onSuccess(responce) {
-        		console.log(responce);
-        		$state.go('monologues');
-        	}, function onError(error) {
-        		console.log(error);
-        	});
+			if ( self.isObjComplete() ) {
+				monologueResource.save(self.newMonologue).$promise
+	        	.then(function onSuccess(responce) {
+	        		console.log(responce);
+	        		$state.go('monologues');
+	        	}, function onError(error) {
+	        		console.log(error);
+	        	});
+			} else {
+				alert('Please complete all fields');
+	        }
 		};
 
 		self.transformForTypeahead = function(array, prop) {
