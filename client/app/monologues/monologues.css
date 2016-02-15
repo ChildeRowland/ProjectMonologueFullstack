@@ -9,13 +9,17 @@
     padding: 5px;
     background-color: #C4E9F5;
   
-    /* needed styles for the overlay */
+    /* needed styles for the overlay 
     z-index: 11; /* keep on top of other elements on the page */
     outline: 9999px solid rgba(0,0,0,0.5);
 }
 
+div {
+    color: #65664A;
+}
+
 body {
-    background-color: #f1f3f3;
+    background-color: #f3f3f1;
 }
 
 /*  Forms  */
@@ -54,6 +58,22 @@ body {
     background-color: #FF3F65;
 }
 
+.btn-richie {
+    color: white;
+    background-color: #B68054;
+    border-color: #B5601B;
+}
+
+.btn-richie:hover {
+    color: white;
+    background-color: #B5601B;
+}
+
+.btn-richie:active {
+    color: white;
+    background-color: #CCAD93;
+}
+
 .btn-cash {
     color: white;
     background-color: #69B88C;
@@ -68,6 +88,22 @@ body {
 .btn-cash:active {
     color: white;
     background-color: #A8DEA8;
+}
+
+.btn-royal {
+    color: white;
+    background-color: #6F9EAF;
+    border-color: #2F8DAF;
+}
+
+.btn-royal:hover {
+    color: white;
+    background-color: #2F8DAF;
+}
+
+.btn-royal:active {
+    color: white;
+    background-color: #9DC4D2;
 }
 
 .btn-dev {

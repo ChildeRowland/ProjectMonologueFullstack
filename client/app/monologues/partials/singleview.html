@@ -1,17 +1,21 @@
 <div class="col-md-12">
 	<div class="single-view">
-
-		<div>
-			<span>{{ ctrl.singleViewObject.title + ' by ' + ctrl.singleViewObject.playwright }}</span>
+		<div class="single-header">
+			<span ng-bind="ctrl.monologue.title"></span></br>
+			by </br>
+			<span ng-bind="ctrl.monologue.playwright"></span>
 		</div>
 
-		<div ng-repeat="(key, value) in ctrl.singleViewObject">
-			<span ng-bind="value"></span>
+		<div class="single-body">
+			<span ng-bind="ctrl.monologue.character"></span></br>
+			<span ng-bind="ctrl.monologue.body"></span>
 		</div>
 
-		<button class="btn btn-warning"
-		        ng-click="ctrl.singleViewToggle()">
-			Close and Return
-		</button>
+		<div class="single-footer">
+			<button class="btn btn-richie"
+			        ng-click="ctrl.close()">
+				close
+			</button>
+		</div>
 	</div>
 </div>

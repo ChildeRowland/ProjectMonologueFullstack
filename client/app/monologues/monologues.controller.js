@@ -70,7 +70,17 @@ angular.module('projectMonologueFullstackApp')
 		};
 	})
 
-	.controller('MonologuesCtrl', function (MonologueEngineDTO, $log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, MonologuesControllerDataService, monologueResource) {
+	.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, MonologueObject) {
+		var self = this;
+		self.monologue = MonologueObject;
+
+		self.close = function () {
+			$uibModalInstance.close();
+			self.monologue;
+		}
+	})
+
+	.controller('MonologuesCtrl', function (MonologueEngineDTO, $uibModal, $log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, MonologuesControllerDataService, monologueResource) {
 		var self = this;
 
 		self.me = new MonologueEngineDTO;
@@ -81,6 +91,19 @@ angular.module('projectMonologueFullstackApp')
 
 		self.genderOptions = GENDEROPTIONS;
 		self.ageOptions = AGEOPTIONS;
+
+		self.open = function (obj) {
+			var modalInstance = $uibModal.open({
+				templateUrl: 'app/monologues/partials/singleview.html',
+				controller: 'ModalInstanceCtrl',
+				controllerAs: 'ctrl',
+				resolve: {
+					MonologueObject: function () {
+						return obj;
+					}
+				}
+			});
+		};
 
 		self.isSimpleSearch = true;
 		self.switchSearch = function() {

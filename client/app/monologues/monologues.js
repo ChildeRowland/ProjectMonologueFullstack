@@ -19,4 +19,3 @@ angular.module('projectMonologueFullstackApp')
         // authenticate: ['user', 'admin']
       });
   });
-// $urlRouterProvider, UI_STATES
