@@ -4,49 +4,52 @@
 </div>
 
 <div class="col-md-4">
-
-	<input type="text" 
-         ng-model="ctrl.criteriaAdvanced.playwright"
-         ng-change="ctrl.advancedSearch()"
-         placeholder="Playwright" />
-  	<br /><br />
-
+  <form class="form-group">
   	<input type="text" 
-         ng-model="ctrl.criteriaAdvanced.title"
-         ng-change="ctrl.advancedSearch()"
-         placeholder="Title" />
-  	<br /><br />
+           class="form-control"
+           ng-model="ctrl.criteriaAdvanced.playwright"
+           ng-change="ctrl.advancedSearch()"
+           placeholder="Playwright" />
+    	<br /><br />
 
-  	<input type="text" 
-         ng-model="ctrl.criteriaAdvanced.character"
-         ng-change="ctrl.advancedSearch()"
-         placeholder="Character" />
-  	<br /><br />
+    	<input type="text" 
+             class="form-control"
+             ng-model="ctrl.criteriaAdvanced.title"
+             ng-change="ctrl.advancedSearch()"
+             placeholder="Title" />
+    	<br /><br />
 
-  </div>
-  <div class="col-md-4">
-  	<div ng-repeat="obj in ctrl.genderOptions">
-    		<input type="radio"
-    			   name="selectGender"
-    			   ng-model="ctrl.criteriaAdvanced.gender"
-             ng-init="ctrl.criteriaAdvanced.gender = ''"
-    			   ng-change="ctrl.advancedSearch()"
-    			   ng-value="obj.value"/>
-    		<span ng-bind="obj.name"></span>
-  	</div>
-  	<br /><br />
+    	<input type="text" 
+             class="form-control"
+             ng-model="ctrl.criteriaAdvanced.character"
+             ng-change="ctrl.advancedSearch()"
+             placeholder="Character" />
+    	<br /><br />
 
-  	<div ng-repeat="obj in ctrl.ageOptions">
-    		<input type="radio"
-    			   name="selectAge"
-    			   ng-model="ctrl.criteriaAdvanced.age"
-             ng-init="ctrl.criteriaAdvanced.age = ''"
-    			   ng-change="ctrl.advancedSearch()"
-    			   ng-value="obj.value"/>
-    		<span ng-bind="obj.name"></span>
-  	</div>
-  	<br /><br />
+    </div>
+    <div class="col-md-4">
+    	<div ng-repeat="obj in ctrl.genderOptions">
+      		<input type="radio" 
+      			     name="selectGender"
+      			     ng-model="ctrl.criteriaAdvanced.gender"
+                 ng-init="ctrl.criteriaAdvanced.gender = ''"
+      			     ng-change="ctrl.advancedSearch()"
+      			     ng-value="obj.value"/>
+      		<span ng-bind="obj.name"></span>
+    	</div>
+    	<br /><br />
 
+    	<div ng-repeat="obj in ctrl.ageOptions">
+      		<input type="radio"
+      			     name="selectAge"
+      			     ng-model="ctrl.criteriaAdvanced.age"
+                 ng-init="ctrl.criteriaAdvanced.age = ''"
+      			     ng-change="ctrl.advancedSearch()"
+      			     ng-value="obj.value"/>
+      		<span ng-bind="obj.name"></span>
+    	</div>
+    	<br /><br />
+  </form>
 </div>
 
 <div class="col-md-4">

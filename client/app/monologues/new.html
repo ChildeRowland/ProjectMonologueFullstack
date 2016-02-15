@@ -62,7 +62,8 @@
 			  		      ng-model="ctrl.newMonologue.body"
 			  		      required>
 			  	</textarea>
-			  	<div ng-show="addMonologue.$submitted">
+			  	<div ng-show="addMonologue.$submitted"
+			  		 class="form-error">
 					<span ng-show="addMonologue.body.$error.minlength">
 						This entry is too short
 					</span>

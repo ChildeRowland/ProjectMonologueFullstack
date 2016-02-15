@@ -14,7 +14,12 @@
     outline: 9999px solid rgba(0,0,0,0.5);
 }
 
+body {
+    background-color: #f1f3f3;
+}
+
 /*  Forms  */
+/*  Form Inputs  */
 
 .form-group {
     color: #65664A;
@@ -29,6 +34,9 @@
 .form-selector {
     margin-left: 2em;
 }
+
+
+/* Form Buttons */
 
 .btn-margot {
     color: white;
@@ -66,6 +74,13 @@
     background-color: #D4CDCD;
 	font-size: 10px;
 	padding: 2px;
+}
+
+
+/*  Form Errors */
+
+.form-error {
+    color: #FA6986;
 }
 
 /* 

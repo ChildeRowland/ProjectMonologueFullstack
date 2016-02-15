@@ -4,12 +4,14 @@
 </div>
 
 <div class="col-md-6">
-
-	<input type="text" 
-         ng-model="ctrl.criteriaSimple"
-         ng-change="ctrl.adjustedFilterSearch()"
-         placeholder="playwright, character, or title" />
-  <br /><br />
+    <form class="form-group">
+    	<input type="text"
+               class="form-control" 
+               ng-model="ctrl.criteriaSimple"
+               ng-change="ctrl.adjustedFilterSearch()"
+               placeholder="playwright, character, or title" />
+        <br /><br />
+    </form>
 </div>
 
 <div class="col-md-6">

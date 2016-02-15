@@ -8,7 +8,8 @@
 	       typeahead-min-length="2"
 	       required>
 	<div ng-show="addMonologue.$submitted">
-		<span ng-show="addMonologue.$error.minlength">
+		<span ng-show="addMonologue.$error.minlength"
+		      class="form-error">
 			This entry is too short
 		</span>
 	</div>
