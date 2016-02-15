@@ -1,40 +1,36 @@
 <navbar></navbar>
+
 <div class="container">
 	<div class="col-md-6">
 
-		<form name="ctrl.newMonologue"
+		<form name="addMonologue"
 			  ng-submit="ctrl.submitMonologue()"
-			  validate>
+			  novalidate>
 
-			<div class="form-group">
-			  	<label>Playwright</label>
-			  	<input type="text"
-			  		   class="form-control"
-			  		   ng-model="ctrl.newMonologue.playwright"
-			  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'playwright') | filter:$viewValue | limitTo:5"
-			  		   typeahead-min-length="2"
-			  		   required>
-			</div>
+			<cm-user-input for-label="Playwright"
+						   for-name="playwright"
+						   for-model="ctrl.newMonologue.playwright"
+						   for-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'playwright') | filter:$viewValue | limitTo:5"
+						   for-minlength="3"
+						   for-show="addMonologue.playwright.$error.minlength">
+			</cm-user-input>
 
-			<div class="form-group">
-			  	<label>Play Name</label>
-			  	<input type="text"
-			  		   class="form-control"
-			  		   ng-model="ctrl.newMonologue.title"
-			  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'title') | filter:$viewValue | limitTo:5"
-			  		   typeahead-min-length="2"
-			  		   required>
-			</div>
+			<cm-user-input for-label="Play Title"
+						   for-name="title"
+						   for-model="ctrl.newMonologue.title"
+						   for-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'title') | filter:$viewValue | limitTo:5"
+						   for-minlength="1"
+						   for-show="addMonologue.title.$error.minlength">
+			</cm-user-input>
 
-			<div class="form-group">
-			  	<label>Character</label>
-			  	<input type="text"
-			  		   class="form-control"
-			  		   ng-model="ctrl.newMonologue.character"
-			  		   uib-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'character') | filter:$viewValue | limitTo:5"
-			  		   typeahead-min-length="2"
-			  		   required>
-			</div>
+			<cm-user-input for-label="Character"
+						   for-name="character"
+						   for-model="ctrl.newMonologue.character"
+						   for-typeahead="item for item in ctrl.transformForTypeahead(ctrl.monologues, 'character') | filter:$viewValue | limitTo:5"
+						   for-minlength="1"
+						   for-show="addMonologue.character.$error.minlength">
+
+			</cm-user-input>
 
 			<div class="form-inline">
 				<div class="form-group form-selector">
@@ -59,11 +55,18 @@
 			<div class="form-group">
 			  	<label>Monologue</label>
 			  	<textarea type="text"
+			  			  name="body"
 			  		   	  class="form-control"
 			  		   	  rows="6"
+			  		   	  minlength="45"
 			  		      ng-model="ctrl.newMonologue.body"
 			  		      required>
 			  	</textarea>
+			  	<div ng-show="addMonologue.$submitted">
+					<span ng-show="addMonologue.body.$error.minlength">
+						This entry is too short
+					</span>
+				</div>
 			</div>
 
 			<input type="button"

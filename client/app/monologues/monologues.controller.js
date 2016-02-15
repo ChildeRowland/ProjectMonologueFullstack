@@ -11,14 +11,10 @@ angular.module('projectMonologueFullstackApp')
 		return MonologueEngine;
 	})
 
-	.controller('MonologuesCtrl', function (MonologueEngineDTO, $log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, AGELIST, MonologuesControllerDataService, monologueResource) {
+	.controller('NewMonologueCtrl', function ($log, $state, GENDEROPTIONS, AGEOPTIONS, AGELIST, MonologuesControllerDataService, monologueResource) {
 		var self = this;
 
-		self.me = new MonologueEngineDTO;
-		
-		self.results;
 		self.monologues;
-		self.criteriaAdvanced = {};
 
 		self.genderOptions = GENDEROPTIONS;
 		self.ageOptions = AGEOPTIONS;
@@ -33,6 +29,58 @@ angular.module('projectMonologueFullstackApp')
 			})
 			return newArray;
 		})();
+
+		MonologuesControllerDataService.getMonologuesListForCtrl(null, function (isValid, responce) {
+			if (isValid) {
+				self.monologues = responce;
+			} else {
+				$log.error('Error in the controller');
+			}
+		});
+
+		self.isObjComplete = function () {
+			var properties = ['playwright', 'title', 'character', 'body'];
+			return properties.every(prop => ( self.newMonologue[prop]) );
+		}
+
+		self.submitMonologue = function() {
+			if ( self.isObjComplete() ) {
+				// alert('will submit');
+				monologueResource.save(self.newMonologue).$promise
+	        	.then(function onSuccess(responce) {
+	        		$log.info(responce);
+	        		$state.go('monologues');
+	        	}, function onError(error) {
+	        		$log.error(error);
+	        	});
+			} else {
+				alert('Please complete all fields');
+	        }
+		};
+
+		self.transformForTypeahead = function(array, prop) {
+			var newArray = [];
+
+			angular.forEach(array, function(obj) {
+				if (newArray.indexOf(obj[prop]) == -1) {
+					newArray.push(obj[prop]);
+				}
+			})
+			return newArray;
+		};
+	})
+
+	.controller('MonologuesCtrl', function (MonologueEngineDTO, $log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, MonologuesControllerDataService, monologueResource) {
+		var self = this;
+
+		self.me = new MonologueEngineDTO;
+		
+		self.results;
+		self.monologues;
+		self.criteriaAdvanced = {};
+
+		self.genderOptions = GENDEROPTIONS;
+		self.ageOptions = AGEOPTIONS;
 
 		self.isSimpleSearch = true;
 		self.switchSearch = function() {
@@ -68,7 +116,7 @@ angular.module('projectMonologueFullstackApp')
 			if (isValid) {
 				self.monologues = responce;
 			} else {
-				$log('Error in the controller');
+				$log.error('Error in the controller');
 			}
 		});
 
@@ -79,36 +127,4 @@ angular.module('projectMonologueFullstackApp')
 		self.advancedSearch = function() {
 			self.results = $filter('multifieldSearch')(self.monologues, self.criteriaAdvanced, ['gender', 'age']);
 		};
-
-		self.isObjComplete = function () {
-			var properties = ['playwright', 'title', 'character', 'body'];
-
-			return properties.every(prop => ( self.newMonologue[prop]) );
-		}
-
-		self.submitMonologue = function() {
-			if ( self.isObjComplete() ) {
-				monologueResource.save(self.newMonologue).$promise
-	        	.then(function onSuccess(responce) {
-	        		console.log(responce);
-	        		$state.go('monologues');
-	        	}, function onError(error) {
-	        		console.log(error);
-	        	});
-			} else {
-				alert('Please complete all fields');
-	        }
-		};
-
-		self.transformForTypeahead = function(array, prop) {
-			var newArray = [];
-
-			angular.forEach(array, function(obj) {
-				if (newArray.indexOf(obj[prop]) == -1) {
-					newArray.push(obj[prop]);
-				}
-			})
-			return newArray;
-		};
-		
 });

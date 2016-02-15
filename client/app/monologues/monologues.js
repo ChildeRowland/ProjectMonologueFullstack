@@ -14,7 +14,7 @@ angular.module('projectMonologueFullstackApp')
       .state(UI_STATES.kMonologueNewState.name, {
         url: '/monologues/new',
         templateUrl: 'app/monologues/new.html',
-        controller: 'MonologuesCtrl',
+        controller: 'NewMonologueCtrl',
         controllerAs: 'ctrl'
         // authenticate: ['user', 'admin']
       });

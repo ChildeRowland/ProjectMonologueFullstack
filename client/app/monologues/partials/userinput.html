@@ -1,0 +1,15 @@
+<div class="form-group">
+	<label>labelBlank</label>
+	<input type="text"
+	       class="form-control"
+	       ng-model="modelBlank"
+	       name="nameBlank"
+	       minlength="2"
+	       typeahead-min-length="2"
+	       required>
+	<div ng-show="addMonologue.$submitted">
+		<span ng-show="addMonologue.$error.minlength">
+			This entry is too short
+		</span>
+	</div>
+</div>

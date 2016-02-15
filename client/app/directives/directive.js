@@ -2,6 +2,26 @@
 
 angular.module('projectMonologueFullstackApp')
 	
+	// single input for forms
+	.directive('cmUserInput', function () {
+		return {
+			templateUrl: 'app/monologues/partials/userinput.html',
+			scope: false,
+			compile: function (element, attributes) {
+				var inputTag = element.find('input');
+				inputTag.attr('ng-model', attributes.forModel);
+				inputTag.attr('name', attributes.forName);
+				inputTag.attr('uib-typeahead', attributes.forTypeahead);
+
+				var labelTag = element.find('label');
+				labelTag.html(attributes.forLabel);
+
+				var spanTag = element.find('span');
+				spanTag.attr('ng-show', attributes.forShow);
+			}
+		};
+	})
+
 	// single entry when iterating over search results
 	.directive('cmShowMonologue', function() {
 		return {
