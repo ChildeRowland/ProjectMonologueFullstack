@@ -12,11 +12,11 @@ Monologue.find({}).removeAsync()
   .then(() => {
     Monologue.createAsync({
       playwright: 'William Shakespeare',
-      title: 'The Merchant of Venice',
-      character: 'Launcelot',
+      title: 'Romeo and Juliet',
+      character: 'Romeo',
       gender: "male",
-      age: "adult",
-      body: "Certainly my conscience will serve me to run from this Jew my master. The fiend is at mine elbow and tempts me, saying to me, 'Gobbo, Launcelot Gobbo, good Launcelot,' or 'good Gobbo,' or 'good Launcelot Gobbo -- use your legs, take the start, run away.' My conscience says, 'No. Take heed, honest Launcelot; take heed, honest Gobbo,' or as aforesaid, 'honest Launcelot Gobbo -- do not run; scorn running with thy heels.' Well, the most courageous fiend bids me pack. 'Fia!' says the fiend; 'away!' says the fiend. 'For the heavens, rouse up a brave mind,' says the fiend, 'and run.' Well, my conscience hanging about the neck of my heart says very wisely to me, 'My honest friend Launcelot, being an honest man's son' -- or rather 'an honest woman's son,' for indeed my father did something smack, something grow to; he had a kind of taste -- Well, my conscience says, 'Launcelot, budge not.' 'Budge,' says the fiend. 'Budge not,' says my conscience. 'Conscience,' say I, 'you counsel well.' 'Fiend,' say I, 'you counsel well.' To be ruled by my conscience, I should stay with the Jew my master who, God bless the mark, is a kind of devil; and to run away from the Jew, I should be ruled by the fiend who, saving your reverence, is the devil himself. Certainly the Jew is the very devil incarnation; And in my conscience, my conscience is but a kind of hard conscience to offer to counsel me to stay with the Jew. The fiend gives the more friendly counsel. I will run, fiend; my heels are at your commandment; I will run.",
+      age: "young adult",
+      body: "But soft! What light through yonder window breaks? \nIt is the East, and Juliet is the sun! \nArise, fair sun, and kill the envious moon, \nWho is already sick and pale with grief \nThat thou her maid art far more fair than she. \nBe not her maid, since she is envious. \nHer vestal livery is but sick and green, \nAnd none but fools do wear it. Cast it off. \nIt is my lady; O, it is my love! \nO that she knew she were! \nShe speaks, yet she says nothing. What of that? \nHer eye discourses; I will answer it. \nI am too bold; 'tis not to me she speaks. \nTwo of the fairest stars in all the heaven, \nHaving some business, do entreat her eyes \nTo twinkle in their spheres till they return. \nWhat if her eyes were there, they in her head? \nThe brightness of her cheek would shame those stars \nAs daylight doth a lamp; her eyes in heaven \nWould through the airy region stream so bright \nThat birds would sing and think it were not night. \nSee how she leans her cheek upon her hand! \nO that I were a glove upon that hand, \nThat I might touch that cheek!",
       chapter: {
         act: '1',
         scene: '1'
@@ -32,7 +32,7 @@ Monologue.find({}).removeAsync()
       character: 'Helena',
       gender: "female",
       age: "adult",
-      body: "I confess",
+      body: "I confess \nHere on my knee before high heaven and you, \nThat before you, and next unto high heaven, \nI love your son. \nMy friends were poor but honest; so's my love. \nBe not offended, for it hurts not him \nThat he is loved of me. I follow him not \nBy any token of presumptuous suit, \nNor would I have him till I do deserve him; \nYet never know how that desert should be. \nI know I love in vain, strive against hope; \nYet in this captious and intensible sieve \nI still pour in the waters of my love \nAnd lack not to lose still. Thus, Indian-like, \nReligious in mine error, I adore \nThe sun that looks upon his worshipper \nBut knows of him no more. My dearest madam, \nLet not your hate encounter with my love, \nFor loving where you do; but if yourself, \nWhose agèd honor cites a virtuous youth, \nDid ever in so true a flame of liking, \nWish chastely and love dearly, that your Dian \nWas both herself and Love, O, then give pity \nTo her whose state is such that cannot choose \nBut lend and give where she is sure to lose; \nThat seeks not to find that her search implies, \nBut, riddle-like, lives sweetly where she dies.",
       chapter: {
         act: '1',
         scene: '1'
@@ -55,6 +55,23 @@ Monologue.find({}).removeAsync()
       },
       setting: ['St. Louis', 'Missouri', '1930s'],
       tags: ['depression', 'southern', 'mother'],
+      meta: {
+        curated: false
+        // date: { type: Date.now }
+      }
+    }, {
+      playwright: 'Tony Kushner',
+      title: "Angels in America",
+      character: 'Harper Amaty Pitt',
+      gender: "female",
+      age: "adult",
+      body: 'People who are lonely, people left alone, sit talking nonsense to the air, imagining… beautiful systems dying, old fixed orders spiraling apart…\nWhen you look at the ozone layer, from outside, from a spaceship, it looks like a pale blue halo, a gentle, shimmering aureole encircling the atmosphere encircling the earth. Thirty miles above our heads, a thin layer of three-atom oxygen molecules, product of photosynthesis, which explains the fussy vegetable preference for visible light, its rejection of darker rays and emanations. Danger from without. It’s a kind of gift, from God, the crowning touch to the creation of the world; guardian angels, hands linked, make a spherical net, a blue-green nesting orb, a shell of safety for life itself. But everywhere, things are collapsing, lies surfacing, systems of defense giving way… This is why, Joe, this is why I shouldn’t be left alone.\nI’d like to go traveling. Leave you behind to worry. I’ll send postcards with strange stamps and tantalizing messages on the back. "Later maybe." "Nevermore…"',
+      chapter: {
+        act: '1',
+        scene: '3'
+      },
+      setting: ['Harper\'s Apartment', 'Brooklyn', 'fall', '1985'],
+      tags: ['drugs', 'God'],
       meta: {
         curated: false
         // date: { type: Date.now }
