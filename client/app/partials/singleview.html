@@ -1,13 +1,17 @@
-<div class="col-md-12">
+<div class="container col-md-12">
 	<div class="single-view">
 		<div class="single-header">
-			<span ng-bind="ctrl.monologue.title"></span></br>
+			<span ng-bind="ctrl.monologue.title"
+			      class="title">
+			</span>
 			by </br>
 			<span ng-bind="ctrl.monologue.playwright"></span>
 		</div>
 
 		<div class="single-body">
-			<span ng-bind="ctrl.monologue.character"></span></br>
+			<span ng-bind="ctrl.monologue.character + ':'"
+				  class="character">
+			</span>
 			<span ng-bind="ctrl.monologue.body"></span>
 		</div>
 

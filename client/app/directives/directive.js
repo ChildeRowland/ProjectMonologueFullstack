@@ -5,7 +5,7 @@ angular.module('projectMonologueFullstackApp')
 	// single input for forms
 	.directive('cmUserInput', function () {
 		return {
-			templateUrl: 'app/monologues/partials/userinput.html',
+			templateUrl: 'app/partials/userinput.html',
 			scope: false,
 			compile: function (element, attributes) {
 				var inputTag = element.find('input');
@@ -25,7 +25,7 @@ angular.module('projectMonologueFullstackApp')
 	// single entry when iterating over search results
 	.directive('cmShowMonologue', function() {
 		return {
-			templateUrl: 'app/monologues/partials/show.html',
+			templateUrl: 'app/partials/show.html',
 			scope: false
 		}
 	})
@@ -33,7 +33,7 @@ angular.module('projectMonologueFullstackApp')
 	// examine one entry from the database
 	.directive('cmSingleView', function() {
 		return {
-			templateUrl: 'app/monologues/partials/singleview.html',
+			templateUrl: 'app/partials/singleview.html',
 			scope: false
 		}
 	})
@@ -41,7 +41,7 @@ angular.module('projectMonologueFullstackApp')
 	// used to display some code between <pre> tags
 	.directive('cmDeveloperPortal', function() {
 		return {
-			templateUrl: 'app/monologues/partials/developer.html',
+			templateUrl: 'app/partials/developer.html',
 			scope: false
 		}
 	})
@@ -49,7 +49,7 @@ angular.module('projectMonologueFullstackApp')
 	// simple search
 	.directive('cmSimpleSearch', function() {
 		return { 
-			templateUrl: 'app/monologues/partials/simplesearch.html',
+			templateUrl: 'app/partials/simplesearch.html',
 			scope: false
 		}
 	})
@@ -57,7 +57,7 @@ angular.module('projectMonologueFullstackApp')
 	// advanced search
 	.directive('cmAdvancedSearch', function() {
 		return { 
-			templateUrl: 'app/monologues/partials/advancedsearch.html',
+			templateUrl: 'app/partials/advancedsearch.html',
 			scope: false
 		}
 	});

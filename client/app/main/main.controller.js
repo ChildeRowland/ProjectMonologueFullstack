@@ -9,9 +9,7 @@ angular.module('projectMonologueFullstackApp')
       { todo: "monologueEngineDTO" },
       { todo: "dynamic lists for age" },
       { todo: "Show matching monologues for duplicate before add" },
-      { todo: "Replace css modal with uiBootrap" },
-      { todo: "Clean view for one monologue" },
-      { todo: "phantomjs error preventing tests" },
+      { todo: "uib radio replacements"},
       { 
         todo: "infinty scrolling for search results",
         resource: "https://sroze.github.io/ngInfiniteScroll/" 

@@ -15,7 +15,6 @@ angular.module('projectMonologueFullstackApp')
 
         	var excludeProperties = function(item) {
 	        	var value = criteria.toLowerCase();
-	          	console.log(escape(item.playwright).toLowerCase());
 	          	return escape(item.title).toLowerCase().indexOf(value || '') !== -1 || 
                      escape(item.character).toLowerCase().indexOf(value || '') !== -1 ||
                    	 escape(item.playwright).toLowerCase().indexOf(value || '') !== -1;
@@ -60,13 +59,6 @@ angular.module('projectMonologueFullstackApp')
             results = $filter('filter')(results, objectProperty, true);
           }
         }
-
-        // if ( criteria.gender != "" ) {
-        //     results = $filter('filter')(results, criteria.gender, true);
-        // }
-        // if ( criteria.age != "" ) {
-        //     results = $filter('filter')(results, criteria.age, true);
-        // }
       }
 
       return results;

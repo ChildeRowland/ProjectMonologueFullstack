@@ -1,0 +1,40 @@
+/*  Modal  */
+/*  divs  */
+
+.single-view {
+	position: absolute;
+    padding: 15px;
+    background-color: #FFFFF2;
+    z-index: 11;
+    outline: 9999px solid rgba(0,0,0,0.5);
+}
+
+.single-header {
+    border-bottom: 1px solid #E2E3C1;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.single-body {
+    font-size: 1.1em;
+    border-bottom: 1px solid #E2E3C1;
+    padding: 10px 0 10px 0;
+}
+
+.single-footer {
+    padding-top: 10px;
+}
+
+
+/*  Modal  */
+/*  spans  */
+
+.title {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.character {
+    font-weight: 700;
+}
