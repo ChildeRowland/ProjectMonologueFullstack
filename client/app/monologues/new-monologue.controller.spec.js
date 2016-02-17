@@ -1,18 +1,18 @@
-'use strict';
+// 'use strict';
 
-describe('Controller: NewMonologueCtrl', function () {
+// describe('Controller: NewMonologueCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('projectMonologueFullstackApp'));
+//   // load the controller's module
+//   beforeEach(module('projectMonologueFullstackApp'));
 
-  var $controller
+//   var $controller
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function (_$controller_) {
-    NewMonologueCtrl = _$controller_;
-  }));
+//   // Initialize the controller and a mock scope
+//   beforeEach(inject(function (_$controller_) {
+//     NewMonologueCtrl = _$controller_;
+//   }));
 
-  it('should ...', function () {
-    expect(1).toEqual(1);
-  });
-});
+//   it('should ...', function () {
+//     expect(1).toEqual(1);
+//   });
+// });
