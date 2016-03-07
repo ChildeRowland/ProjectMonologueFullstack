@@ -15,7 +15,8 @@ angular.module('projectMonologueFullstackApp')
       { 
         todo: "infinty scrolling for search results",
         resource: "https://sroze.github.io/ngInfiniteScroll/" 
-      }
+      },
+      { todo: "return no results for search matching 0"}
     ];
 
   });

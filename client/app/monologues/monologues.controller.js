@@ -118,6 +118,7 @@ angular.module('projectMonologueFullstackApp')
 
 	self.isdeveloperView = false;
 	self.switchDev = function() {
+		// self.isdeveloperView = !isdeveloperView;
 		if ( self.isdeveloperView === true ) {
 			self.isdeveloperView = false;
 		} else {
