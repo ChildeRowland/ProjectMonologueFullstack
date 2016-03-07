@@ -1,13 +1,17 @@
-# project-monologue-fullstack
+# Project Monologue
 
 Actors' resource for finding monologues.  Filter the database by multiple properties, select one to view in a modal.
 
 Anyone can search.  When users log in, they can add new monlogues and save monologues to a list of favorites.  
 
-Curators view recent additons for accuracy and consistency. 
+Curators view recent additons for accuracy and consistency.
+
+Built using the MEAN stack and deployed via heroku:
+
+https://cm-project-monologue.herokuapp.com
 
 
-# Scafolding
+## Scafolding
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.2.0.
 
