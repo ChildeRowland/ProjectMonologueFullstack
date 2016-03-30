@@ -28,7 +28,7 @@
 
     </div>
     <div class="col-md-4">
-    	<div ng-repeat="obj in ctrl.genderOptions">
+    	<div ng-repeat="obj in ctrl.valueSelect.genderOptions">
       		<input type="radio" 
       			     name="selectGender"
       			     ng-model="ctrl.criteriaAdvanced.gender"
@@ -39,7 +39,7 @@
     	</div>
     	<br /><br />
 
-    	<div ng-repeat="obj in ctrl.ageOptions">
+    	<div ng-repeat="obj in ctrl.valueSelect.ageOptions">
       		<input type="radio"
       			     name="selectAge"
       			     ng-model="ctrl.criteriaAdvanced.age"

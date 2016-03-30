@@ -8,7 +8,6 @@ angular.module('projectMonologueFullstackApp')
     self.toDoList = [
       { todo: "monologueEngineDTO" },
       { todo: "phantom error preventing tests"},
-      { todo: "dynamic lists for age" },
       { todo: "Show matching monologues for duplicate before add" },
       { todo: "uib radio replacements"},
       { todo: "uib alert boxes for validations"},

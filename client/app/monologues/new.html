@@ -36,7 +36,7 @@
 				<div class="form-group form-selector">
 					<label>Gender</label>
 					<select class="form-control box-radio"
-							ng-options="gender as gender for gender in ctrl.genderList"
+							ng-options="gender as gender for gender in ctrl.valueSelect.genderList"
 							ng-model="ctrl.newMonologue.gender"
 							ng-init="ctrl.newMonologue.gender = 'other'">
 					</select>
@@ -45,7 +45,7 @@
 				<div class="form-group form-selector">
 					<label>Age</label>
 					<select class="form-control"
-							ng-options="age as age for age in ctrl.ageList"
+							ng-options="age as age for age in ctrl.valueSelect.ageList"
 						    ng-model="ctrl.newMonologue.age"
 						    ng-init="ctrl.newMonologue.age = 'adult'">
 					</select>

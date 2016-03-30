@@ -2,6 +2,28 @@
 
 angular.module('projectMonologueFullstackApp')
 
+.factory('ValuesList', function (GENDEROPTIONS, AGEOPTIONS) {
+	var ValuesList = {
+		genderOptions: GENDEROPTIONS,
+		ageOptions: AGEOPTIONS
+	};
+
+	ValuesList.genderList = generateList(GENDEROPTIONS);
+	ValuesList.ageList = generateList(AGEOPTIONS);
+
+	function generateList (objValue) {
+		var newArray = [];
+		angular.forEach(objValue, function (obj) {
+			if ( obj['value'].length > 1 ) {
+				newArray.push(obj['value']);
+			}
+		})
+		return newArray;
+	}
+
+	return ValuesList;
+})
+
 .value('GENDEROPTIONS', [
 	{
 		name: 'leave unspecified',
@@ -20,8 +42,6 @@ angular.module('projectMonologueFullstackApp')
 		value: 'other'
 	}
 ])
-
-// .value('GENDERLIST', [ 'other', 'male', 'female', 'transgender' ])
 
 .value('AGEOPTIONS', [
 	{ 
@@ -45,4 +65,5 @@ angular.module('projectMonologueFullstackApp')
     }
 ])
 
-.value('AGELIST', [ 'child', 'teenager', 'young adult', 'adult', 'senior'])
+
+

@@ -11,24 +11,11 @@ angular.module('projectMonologueFullstackApp')
 	return MonologueEngine;
 })
 
-.controller('NewMonologueCtrl', function ($log, $state, GENDEROPTIONS, AGEOPTIONS, AGELIST, MonologuesControllerDataService, monologueResource) {
+.controller('NewMonologueCtrl', function ($log, $state, ValuesList, MonologuesControllerDataService, monologueResource) {
 	var self = this;
 
 	self.monologues;
-
-	self.genderOptions = GENDEROPTIONS;
-	self.ageOptions = AGEOPTIONS;
-
-	self.ageList = AGELIST;
-	self.genderList = (function() {
-		var newArray = [];
-		angular.forEach(self.genderOptions, function(obj) { 
-			if ( obj['value'].length > 1 ) {
-				newArray.push(obj['value']);
-			}
-		})
-		return newArray;
-	})();
+	self.valueSelect = ValuesList;
 
 	MonologuesControllerDataService.getMonologuesListForCtrl(null, function (isValid, responce) {
 		if (isValid) {
@@ -70,7 +57,7 @@ angular.module('projectMonologueFullstackApp')
 	};
 })
 
-.controller('MonologuesCtrl', function (MonologueEngineDTO, $uibModal, $log, $filter, $state, GENDEROPTIONS, AGEOPTIONS, MonologuesControllerDataService, monologueResource) {
+.controller('MonologuesCtrl', function (MonologueEngineDTO, $uibModal, $log, $filter, $state, ValuesList, MonologuesControllerDataService, monologueResource) {
 	var self = this;
 
 	self.me = new MonologueEngineDTO;
@@ -78,22 +65,7 @@ angular.module('projectMonologueFullstackApp')
 	self.results;
 	self.monologues;
 	self.criteriaAdvanced = {};
-
-	self.genderOptions = GENDEROPTIONS;
-	self.ageOptions = AGEOPTIONS;
-
-	self.open = function (obj) {
-		var modalInstance = $uibModal.open({
-			templateUrl: 'app/partials/singleview.html',
-			controller: 'ModalInstanceCtrl',
-			controllerAs: 'ctrl',
-			resolve: {
-				MonologueObject: function () {
-					return obj;
-				}
-			}
-		});
-	};
+	self.valueSelect = ValuesList;
 
 	self.isSimpleSearch = true;
 	self.switchSearch = function() {
@@ -108,6 +80,19 @@ angular.module('projectMonologueFullstackApp')
 		}
 	};
 
+	self.open = function (obj) {
+		var modalInstance = $uibModal.open({
+			templateUrl: 'app/partials/singleview.html',
+			controller: 'ModalInstanceCtrl',
+			controllerAs: 'ctrl',
+			resolve: {
+				MonologueObject: function () {
+					return obj;
+				}
+			}
+		});
+	};
+
 	self.singleViewObject = null;
 	self.singleViewToggle = function() {
 		self.singleViewObject = null;
@@ -118,12 +103,7 @@ angular.module('projectMonologueFullstackApp')
 
 	self.isdeveloperView = false;
 	self.switchDev = function() {
-		// self.isdeveloperView = !isdeveloperView;
-		if ( self.isdeveloperView === true ) {
-			self.isdeveloperView = false;
-		} else {
-			self.isdeveloperView = true;
-		}
+		self.isdeveloperView = !self.isdeveloperView;
 	};
 
 	MonologuesControllerDataService.getMonologuesListForCtrl(null, function (isValid, responce) {
